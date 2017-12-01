@@ -28,7 +28,6 @@ class character:
         self.strength = strength
         self.health = health
         self.gold = gold
-        self.dext = dexterity
         self.inventory = inventory
 
     def __str__(self):
@@ -44,11 +43,10 @@ class character:
                "hefur styrkisgildið {strength} \n" \
                "heilsugildið er {health} \n" \
                "Gull: {gold} \n" \
-               "Handlagn: {dext} \n" \
-               "Birgðir: {inventory}".format(nafn = self.nafn, strength = self.strength, health = self.health, gold = self.gold, dext = self.dext, inventory = inv)
+               "Birgðir: {inventory}".format(nafn = self.nafn, strength = self.strength, health = self.health, gold = self.gold, inventory = inv)
 
     def stats(self):
-        stats = {"styrkur":self.strength, "heilsa":self.health, "gold":self.health, "dext": self.dext, "inv":self.inventory}
+        stats = {"styrkur":self.strength, "heilsa":self.health, "gold":self.health, "inv":self.inventory}
         return stats
 
 
