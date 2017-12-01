@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="93aa0d76-0f8d-42ea-8777-f9cf2af85034" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/character.py" />
-    </list>
+    <list default="true" id="93aa0d76-0f8d-42ea-8777-f9cf2af85034" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +17,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="96" />
-    <option name="y" value="171" />
+    <option name="x" value="-147" />
+    <option name="y" value="137" />
     <option name="width" value="1684" />
     <option name="height" value="1026" />
   </component>
@@ -38,7 +36,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="96" y="171" width="1684" height="1026" extended-state="0" />
+    <frame x="-147" y="137" width="1684" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
