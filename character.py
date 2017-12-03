@@ -31,21 +31,28 @@ class character:
         self.hlutr = equipment
         self.inventory = inventory
 
+    # Ef það er gert
     def __str__(self):
         inv = ""
-        print(next(iter(self.inventory)))
         for x in self.inventory:
             if len(self.inventory) == 1 or next(iter(self.inventory)) == x:
                 inv += x
             else:
                 inv += ", {item}".format(item = x)
+        hlutur = ""
+        for x in self.hlutr:
+            if len(self.hlutr) == 1 or next(iter(self.hlutr)) == x:
+                hlutur += x
+            else:
+                hlutur += ", {item}".format(item = x)
 
         return "\nNafn: {nafn}\n" \
-               "Hefur styrkisgildið {strength} \n" \
-               "Heilsugildið er {health} \n" \
+               "styrkisgildi: {strength} \n" \
+               "Heilsugildið: {health} \n" \
                "Gull: {gold} \n" \
-               "valið {val}" \
-               "Birgðir: {inventory}".format(nafn = self.nafn, strength = self.strength, health = self.health, gold = self.gold, val = self.hlutr, inventory = inv)
+               "valið: {val} \n" \
+               "Birgðir: {inventory} \n" \
+               "".format(nafn = self.nafn, strength = self.strength, health = self.health, gold = self.gold, val = hlutur, inventory = inv)
 
     def stats(self):
         stats = {"styrkur":self.strength, "heilsa":self.health, "gold":self.health, "inv":self.inventory, "hlutir":self.hlutr}
