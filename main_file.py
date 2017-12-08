@@ -40,6 +40,7 @@ while True:
           "4. Sofa(15 gull)")
     valmynd = input(">> ")
     print()
+    # Bardagi
     if valmynd == "1":
         while True:
             enemy=ovinir[0]["stats"]
@@ -49,15 +50,18 @@ while True:
             ovinur_heilsa = str(ovinur_heilsa)
             print("ýttu á Enter til að kasta tening"
                   "\nveldu 1 til að bæta heislu")
+            # velja hvort að að berjast eða bæta heilsu til að þú deyrð ekki.
             velja=input(">>")
             if velja=="1":
                 spilari.health=bardaginn.heilsa()
+            # Ef það er ekki valið 1
             else:
                 enemy["heilsa"]=bardaginn.bardaginn_notandi()
             bardaginn = bardagi(enemy, enemy_equipment,spilari.inventory, spilari.stats(), spilari.hlutr)
             spilari.health=bardaginn.bardaginn_ovinur()
 
             print("Heilsa:", spilari.stats()["heilsa"])
+
             if enemy["heilsa"]<=0:
                 print("Þú drapst óvininn")
                 del ovinir[0]
@@ -73,14 +77,17 @@ while True:
             print("Heilsa óvinarins:", enemy["heilsa"])
             print("-----------------------")
 
+    # Búð
     if valmynd == "2":
         while True:
+            # Allir hlutirnir í búðinni
             vopn = {"brons sverð": {"value": 4, "verd": 200, "tegund": "vopn"}
                 , "járn sverð": {"value": 8, "verd": 1000, "tegund": "vopn"}
                 , "járn öxi": {"value": 10, "verd": 1200, "tegund": "vopn"}
                 , "mithril brynja": {"value": 20, "verd": 5000, "tegund": "brynja"}
                 , "járn brynja": {"value": 4, "verd": 750, "tegund": "brynja"}
                 ,  "betri járn bryna":{"value": 10, "verd": 1750, "tegund": "brynja"}}
+            # Prentar vopnin og eiginleika þeirra
             for x in vopn:
                 v = vopn[x]
                 if v["tegund"] == "sverð" or v["tegund"] == "öxi":
@@ -88,6 +95,7 @@ while True:
                 else:
                     print(x, "block:", v["value"], "verð:", v["verd"], "tegund:", v["tegund"])
 
+            # Kaupir vopn
             while True:
                 kaupa = input("Veldu það sem þú vilt kaupa(1 til að hætta) ")
                 til = False
@@ -120,6 +128,7 @@ while True:
             if valmynd == "2":
                 break
 
+    # Hvað spilari hefur og þar sem er skipt á milli
     if valmynd == "3":
         print("Geymt")
         for x in spilari.inventory:
@@ -133,17 +142,22 @@ while True:
             breyta=input("Hvað viltu velja? (1 til að hætta)")
             if breyta=="1":
                 break
+            # Gáir hvort að spilari er með hlutinn
             for x in spilari.inventory:
                 if x==breyta:
                     print(spilari.inventory[x]["tegund"])
+                    # Gáir hvort að það sé vopn eða brynja
                     if spilari.inventory[x]["tegund"]=="vopn":
+                        # Fer í gegn um hluti og leitar af vopni
                         for y in spilari.hlutr:
                             if spilari.hlutr[y]["tegund"]=="vopn":
+                                # Tekur úr inventory og setur í hluti
                                 spilari.inventory[y]=spilari.hlutr[y]
                                 del spilari.hlutr[y]
                                 spilari.hlutr[x]=spilari.inventory[x]
                                 del spilari.inventory[x]
                                 break
+
                     elif spilari.inventory[x]["tegund"]=="brynja":
                         for y in spilari.hlutr:
                             if spilari.hlutr[y]["tegund"]=="brynja":
@@ -154,6 +168,7 @@ while True:
                                 break
                     else:
                         print("Ekki vopn eða brynja")
+
         print("\nGeymt")
         for x in spilari.inventory:
             print(x, spilari.inventory[x])
@@ -163,6 +178,7 @@ while True:
             print(x, spilari.hlutr[x])
         input("\nEnter til að halda áfram")
 
+    # Sefur með óréttlæti
     if valmynd == "4":
         if spilari.kyn == "Maður":
             spilari.gold -= 15

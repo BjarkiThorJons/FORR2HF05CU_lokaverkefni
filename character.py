@@ -38,6 +38,7 @@ class character:
     # Ef það er gert print character þá keyrist þetta
     def __str__(self):
         inv = ""
+        # tekur úr dictionary og setur það í skiljanlegan texta
         for x in self.inventory:
             if len(self.inventory) == 1 or next(iter(self.inventory)) == x:
                 inv += x

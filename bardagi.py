@@ -12,11 +12,13 @@ class bardagi:
         styrkur_1=self.s1["styrkur"]
         heilsa_2 = self.s2["heilsa"]
         velja=input("Kastaðu tening (ýttu á Enter)")
+        # Bil til að passa að það er ekki of mikið af upplýsingum á skjánum
         for x in range(9):
             print("")
 
         kast_1=randint(1,20)
 
+        # Að ná í eiginleika fyrir vopn/brynju
         for x in self.e1:
             if self.e1[x]["tegund"]=="vopn":
                 dmg_1=self.e1[x]["value"]
@@ -37,8 +39,10 @@ class bardagi:
             input("Kastaðu tening til að meiða (ýttu á enter)")
             for x in range(11):
                 print("")
+
             kast_2=randint(1, dmg_1)
             heilsa_2=heilsa_2-kast_2
+
             print("Þú meiddir fyrir:", kast_2)
             print("{0} - {1} = {2}".format(self.s2["heilsa"], kast_2, heilsa_2))
             print("Óvinur er nú með {0} í heilsu".format(heilsa_2))
@@ -82,12 +86,16 @@ class bardagi:
 
         else:
             return heilsa_2
+    # Til að nota heilsu dót
     def heilsa(self):
         print(self.inv)
+        # Prentar inventory
         for x in self.inv:
             if self.inv[x]["tegund"] == "heilsa":
                 print(x, self.inv[x])
         veldu = input("veldu hlut")
+
+        # Gáir hvort að hluturinn er í inventory
         for x in self.inv:
             if x == veldu:
                 heilsa = self.s1["heilsa"] + self.inv[x]["value"]
