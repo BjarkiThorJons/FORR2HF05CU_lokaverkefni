@@ -2,6 +2,7 @@ class character:
     def __init__(self, nafn, kyn):
         # Maður
         if kyn == 1:
+            kyn = "Maður"
             strength = 6
             health = 20
             gold = 1000
@@ -10,6 +11,7 @@ class character:
 
         # Dvergur
         if kyn == 2:
+            kyn = "Dvergur"
             strength = 10
             health = 30
             gold = 500
@@ -18,12 +20,14 @@ class character:
 
         # Álfur
         if kyn == 3:
+            kyn = "Álfur"
             strength = 8
             health = 25
             gold = 750
             equipment = {"Spjót":{"value":7, "verð":200, "tegund":"vopn"}, "Brynja":{"value":20, "tegund":"brynja"}}
             inventory = {"Heilsu flaska":{"value":10,"tegund":"heilsa", "magn":1},"brauð":{"value":5, "tegund":"heilsa", "magn":2}}
 
+        self.kyn = kyn
         self.nafn = nafn
         self.strength = strength
         self.health = health
@@ -31,7 +35,7 @@ class character:
         self.hlutr = equipment
         self.inventory = inventory
 
-    # Ef það er gert
+    # Ef það er gert print character þá keyrist þetta
     def __str__(self):
         inv = ""
         for x in self.inventory:
@@ -47,12 +51,13 @@ class character:
                 hlutur += ", {item}".format(item = x)
 
         return "\nNafn: {nafn}\n" \
+               "Kyn: {kyn}\n" \
                "styrkisgildi: {strength} \n" \
                "Heilsugildið: {health} \n" \
                "Gull: {gold} \n" \
                "valið: {val} \n" \
                "Birgðir: {inventory} \n" \
-               "".format(nafn = self.nafn, strength = self.strength, health = self.health, gold = self.gold, val = hlutur, inventory = inv)
+               "".format(nafn = self.nafn, kyn = self.kyn, strength = self.strength, health = self.health, gold = self.gold, val = hlutur, inventory = inv)
 
     def stats(self):
         stats = {"styrkur":self.strength, "heilsa":self.health, "gold":self.health, "inv":self.inventory, "hlutir":self.hlutr}

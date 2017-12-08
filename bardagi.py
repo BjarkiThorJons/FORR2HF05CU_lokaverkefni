@@ -1,16 +1,17 @@
 from random import *
 
 class bardagi:
-    def __init__(self,stats_1,equipment_1,stats_2,equipment_2):
+    def __init__(self,stats_1,equipment_1,inventory,stats_2,equipment_2):
         self.s1=stats_1
         self.e1=equipment_1
+        self.inv=inventory
         self.s2=stats_2
         self.e2=equipment_2
 
     def bardaginn_notandi(self):
         styrkur_1=self.s1["styrkur"]
         heilsa_2 = self.s2["heilsa"]
-        input("Kastaðu tening til að hitta (ýttu á enter)")
+        velja=input("Kastaðu tening (ýttu á Enter)")
         for x in range(9):
             print("")
 
@@ -27,8 +28,8 @@ class bardagi:
         # Prentar kastið hjá notenda og sýnir vernd hjá óvini
         utkoma = kast_1 + styrkur_1
         print("þú kastaðir fyrir {0}\n"
-              "{1} + {0} = {2}\n"
-              "Vernd hans er {3}".format(kast_1,styrkur_1, utkoma,vernd_2))
+                "{1} + {0} = {2}\n"
+                "Vernd hans er {3}".format(kast_1,styrkur_1, utkoma,vernd_2))
 
         if kast_1+styrkur_1>=vernd_2:
             print("Þú hittir")
@@ -81,3 +82,13 @@ class bardagi:
 
         else:
             return heilsa_2
+    def heilsa(self):
+        print(self.inv)
+        for x in self.inv:
+            if self.inv[x]["tegund"] == "heilsa":
+                print(x, self.inv[x])
+        veldu = input("veldu hlut")
+        for x in self.inv:
+            if x == veldu:
+                heilsa = self.s1["heilsa"] + self.inv[x]["value"]
+        return heilsa
